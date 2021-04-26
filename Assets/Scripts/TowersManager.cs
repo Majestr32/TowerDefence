@@ -20,12 +20,21 @@ public class TowersManager : MonoBehaviour
     public void Place()
     {
         int playerCoins = PlayerData.Instance.Coins;
+        int playerWoods = PlayerData.Instance.Woods;
+        int playerBricks = PlayerData.Instance.Bricks;
+
         int requiredCoins = Towers[SelectedTowerIndex].GetComponent<Turret>().Levels[0].coinsPrice;
-        if (playerCoins >= requiredCoins)
+        int requiredWoods = Towers[SelectedTowerIndex].GetComponent<Turret>().Levels[0].woodsPrice;
+        int requiredBricks = Towers[SelectedTowerIndex].GetComponent<Turret>().Levels[0].bricksPrice;
+
+        if (playerCoins >= requiredCoins && playerBricks >= requiredBricks && playerWoods >= requiredWoods)
         {
             PlayerData.Instance.WasteCoins(requiredCoins);
+            PlayerData.Instance.WasteBricks(requiredBricks);
+            PlayerData.Instance.WasteWoods(requiredWoods);
+
             Instantiate(Towers[SelectedTowerIndex], SelectedCellPosition, Quaternion.identity, towersParent);
-            UI.Instance.CloseTurretMenu();
+            TurretMenuPannel.Instance.CloseTurretMenu();
         }
     }
 }

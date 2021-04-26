@@ -31,15 +31,16 @@ public class MapManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (IsTileOpenShoot(mousePosition))
-            {
-                Vector3Int gridPosition = GetGridPosition(mousePosition);
-                Vector3 globalPosition = tileMap.GetCellCenterWorld(gridPosition);
+             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+             Collider2D[] colliders = Physics2D.OverlapCircleAll(mousePosition, 0.1f);
+             if (IsTileOpenShoot(mousePosition) && colliders.Length == 0)
+             {
+                 Vector3Int gridPosition = GetGridPosition(mousePosition);
+                 Vector3 globalPosition = tileMap.GetCellCenterWorld(gridPosition);
 
-                TowersManager.Instance.SelectedCellPosition = globalPosition;
-                UI.Instance.OpenPlanningMenu();
-            }
+                 TowersManager.Instance.SelectedCellPosition = globalPosition;
+                 TurretMenuPannel.Instance.OpenPlanningMenu();
+             }
         }
     }
     public void UpgradeTower()

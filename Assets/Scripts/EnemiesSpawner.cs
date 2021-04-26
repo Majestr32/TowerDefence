@@ -46,7 +46,7 @@ public class EnemiesSpawner : MonoBehaviour
     private IEnumerator SpawnWaveGroup()
     {
         if (currentGroupIndex == 0)
-            UI.Instance.ShowWave(currentWaveIndex + 1);
+            WavePannel.Instance.ShowWave(currentWaveIndex + 1);
         int howManyToSpawn = waves[currentWaveIndex].groups[currentGroupIndex].count;
         while (howManyToSpawn > 0)
         {
@@ -91,7 +91,7 @@ public class EnemiesSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
             EnemiesOnTheMap = GameObject.FindGameObjectsWithTag("Enemy").Length == 0 ? false : true;
         }
-        UI.Instance.ShowWinPannel();
+        WinPannel.Instance.ShowWinPannel();
     }
     private bool GroupsAreOver()
     {

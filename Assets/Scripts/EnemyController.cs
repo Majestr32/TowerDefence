@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         if (nextIndex == PathPoints.Length)
         {
             Destroy(gameObject);
-            UI.Instance.ShowLosePannel();
+            WinPannel.Instance.ShowLosePannel();
             return;
         }
         direction = (PathPoints[nextIndex].transform.position - PathPoints[currentPathIndex].transform.position).normalized;
