@@ -22,21 +22,25 @@ public class ResourcesPannel : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
         #endregion
+        PlayerData.Instance.OnBricksChanged += UpdatePlayerBricks;
+        PlayerData.Instance.OnCoinsChanged += UpdatePlayerCoins;
+        PlayerData.Instance.OnWoodsChanged += UpdatePlayerWoods;
+        //Subscribe
     }
-    public void UpdatePlayerCoins()
+    public void UpdatePlayerCoins(int coins)
     {
-        txtPlayerCoins.text = PlayerData.Instance.Coins.ToString();
+        txtPlayerCoins.text = coins.ToString();
     }
-    public void UpdatePlayerWoods()
+    public void UpdatePlayerWoods(int woods)
     {
-        txtPlayerWoods.text = PlayerData.Instance.Woods.ToString();
+        txtPlayerWoods.text = woods.ToString();
     }
-    public void UpdatePlayerBricks()
+    public void UpdatePlayerBricks(int bricks)
     {
-        txtPlayerBricks.text = PlayerData.Instance.Bricks.ToString();
+        txtPlayerBricks.text = bricks.ToString();
     }
-    public void UpdatePlayerWorkers()
+    public void UpdatePlayerWorkers(int CurrentWorkers,int maximumWorkers)
     {
-        txtPlayerWorkers.text = PlayerData.Instance.WorkersCount.ToString() + "/" + PlayerData.Instance.MaximumWorkersCount.ToString();
+        txtPlayerWorkers.text = CurrentWorkers.ToString() + "/" + maximumWorkers.ToString();
     }
 }

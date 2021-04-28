@@ -29,9 +29,9 @@ public class TowersManager : MonoBehaviour
 
         if (playerCoins >= requiredCoins && playerBricks >= requiredBricks && playerWoods >= requiredWoods)
         {
-            PlayerData.Instance.WasteCoins(requiredCoins);
-            PlayerData.Instance.WasteBricks(requiredBricks);
-            PlayerData.Instance.WasteWoods(requiredWoods);
+            PlayerData.Instance.Coins -= requiredCoins;
+            PlayerData.Instance.Bricks -= requiredBricks;
+            PlayerData.Instance.Woods -= requiredWoods;
 
             Instantiate(Towers[SelectedTowerIndex], SelectedCellPosition, Quaternion.identity, towersParent);
             TurretMenuPannel.Instance.CloseTurretMenu();

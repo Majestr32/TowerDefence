@@ -2374,8 +2374,9 @@ GameObject:
   - component: {fileID: 335819637}
   - component: {fileID: 335819639}
   - component: {fileID: 335819638}
+  - component: {fileID: 335819640}
   m_Layer: 5
-  m_Name: imgAddWorker
+  m_Name: btnAddWorker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2438,6 +2439,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335819636}
   m_CullTransparentMesh: 1
+--- !u!114 &335819640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335819636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 335819638}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &343531939 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 457495443888737113, guid: 2db3e3afb029fe546b3e0d6133ff9e70, type: 3}
@@ -3113,6 +3158,12 @@ GameObject:
   - component: {fileID: 495922873}
   - component: {fileID: 495922872}
   - component: {fileID: 495922876}
+  - component: {fileID: 495922882}
+  - component: {fileID: 495922881}
+  - component: {fileID: 495922880}
+  - component: {fileID: 495922879}
+  - component: {fileID: 495922878}
+  - component: {fileID: 495922877}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -3221,6 +3272,107 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653edabf5ffd00645965f84f07e4230a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitPannel: {fileID: 495922880}
+  resourcesPannel: {fileID: 495922879}
+  turretBuildingPannel: {fileID: 495922878}
+  turretMenuPannel: {fileID: 495922877}
+  winPannel: {fileID: 495922881}
+  wavePannel: {fileID: 495922882}
+--- !u!114 &495922877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b639ab3810fa5534b8c4f44334cfee43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretMenu: {fileID: 816186754}
+  turretStatusContent: {fileID: 626168558}
+  txtCoins: {fileID: 151017574}
+  txtWoods: {fileID: 1496829049}
+  txtBricks: {fileID: 279618442}
+  txtBuildTime: {fileID: 137306349}
+--- !u!114 &495922878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89af0494516550e4d80a8539d6c8b250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turretBuildingPannel: {fileID: 1879666689}
+  turretData: {fileID: 1229113279}
+  buildingData: {fileID: 1170832983}
+  imgTurret: {fileID: 1754094950}
+  txtTurretBuildingDamage: {fileID: 967628209}
+  txtTurretBuildingSpeed: {fileID: 939663655}
+  txtBuildersCount: {fileID: 711846563}
+  txtTimeLeft: {fileID: 1850667976}
+--- !u!114 &495922879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2ffdbbc1d3fe44498ef7a47ad6d4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtPlayerCoins: {fileID: 1691400772}
+  txtPlayerWoods: {fileID: 938400515}
+  txtPlayerBricks: {fileID: 774312776}
+  txtPlayerWorkers: {fileID: 1240988891}
+--- !u!114 &495922880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dc190556389494ebf70acf1f7819e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objExitPannel: {fileID: 1336312297}
+--- !u!114 &495922881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a20687dfc242314c9582ac66b25dc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objLosePannel: {fileID: 952216222}
+  objWinPannel: {fileID: 1493941830}
+--- !u!114 &495922882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495922871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce217c3e5f852634981edb3efd878043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtWave: {fileID: 25746213}
+  objWave: {fileID: 25746210}
 --- !u!1 &507334771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6979,8 +7131,9 @@ GameObject:
   - component: {fileID: 1120807263}
   - component: {fileID: 1120807265}
   - component: {fileID: 1120807264}
+  - component: {fileID: 1120807266}
   m_Layer: 5
-  m_Name: imgRemoveWorker
+  m_Name: btnRemoveWorker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7043,6 +7196,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120807262}
   m_CullTransparentMesh: 1
+--- !u!114 &1120807266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120807262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1120807264}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1147447524
 GameObject:
   m_ObjectHideFlags: 0
@@ -13541,8 +13738,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 495922876}
-          m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        - m_Target: {fileID: 495922877}
+          m_TargetAssemblyTypeName: TurretMenuPannel, Assembly-CSharp
           m_MethodName: ShowTowerStatusContent
           m_Mode: 3
           m_Arguments:
@@ -14928,8 +15125,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 495922876}
-        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: TurretMenuPannel, Assembly-CSharp
         m_MethodName: CloseTurretMenu
         m_Mode: 1
         m_Arguments:

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,11 +11,17 @@ public class PlayerData : MonoBehaviour
     private int bricks;
     private int workersCount;
     private int maximumWorkersCount;
-    public int WorkersCount { get { return workersCount; } set { workersCount = value; ResourcesPannel.Instance.UpdatePlayerWorkers(); } }
-    public int MaximumWorkersCount { get { return maximumWorkersCount; } set { maximumWorkersCount = value; ResourcesPannel.Instance.UpdatePlayerWorkers(); } }
-    public int Coins { get { return coins; } set { coins = value; ResourcesPannel.Instance.UpdatePlayerCoins(); }  }
-    public int Woods { get { return woods; } set { woods = value; ResourcesPannel.Instance.UpdatePlayerWoods(); } }
-    public int Bricks { get { return bricks; } set { bricks = value; ResourcesPannel.Instance.UpdatePlayerBricks(); } }
+    public int WorkersCount { get { return workersCount; } set { workersCount = value; OnWorkersCountChanged?.Invoke(value,maximumWorkersCount); } }
+    public int MaximumWorkersCount { get { return maximumWorkersCount; } set { maximumWorkersCount = value; OnMaximumWorkersCountChanged?.Invoke(workersCount,value); } }
+    public int Coins { get { return coins; } set { coins = value; OnCoinsChanged?.Invoke(value); }  }
+    public int Woods { get { return woods; } set { woods = value; OnWoodsChanged?.Invoke(value); } }
+    public int Bricks { get { return bricks; } set { bricks = value; OnBricksChanged?.Invoke(value); } }
+    
+    public event Action<int,int> OnWorkersCountChanged;
+    public event Action<int,int> OnMaximumWorkersCountChanged;
+    public event Action<int> OnCoinsChanged;
+    public event Action<int> OnWoodsChanged;
+    public event Action<int> OnBricksChanged;
     private void Awake()
     {
         #region Singleton
@@ -35,17 +42,5 @@ public class PlayerData : MonoBehaviour
     public void ReceiveCoins(int amount)
     {
         Coins += amount;
-    }
-    public void WasteCoins(int amount)
-    {
-        Coins -= amount;
-    }
-    public void WasteWoods(int amount)
-    {
-        Woods -= amount;
-    }
-    public void WasteBricks(int amount)
-    {
-        Bricks -= amount;
     }
 }

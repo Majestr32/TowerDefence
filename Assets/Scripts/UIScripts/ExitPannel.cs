@@ -15,7 +15,6 @@ public class ExitPannel : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
         #endregion
-        HideExitMenu();
     }
     private void Update()
     {

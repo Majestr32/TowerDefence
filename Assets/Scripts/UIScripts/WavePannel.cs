@@ -19,6 +19,9 @@ public class WavePannel : MonoBehaviour
             Destroy(gameObject);
         #endregion
     }
+
+
+
     public void ShowWave(int wave)
     {
         StartCoroutine(AnimationWave(wave));

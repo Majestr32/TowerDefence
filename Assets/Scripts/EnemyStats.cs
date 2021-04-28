@@ -20,7 +20,7 @@ public class EnemyStats : MonoBehaviour
         currentHp -= damage;
         if (currentHp <= 0)
         {
-            PlayerData.Instance.ReceiveCoins((int)BountyKilling);
+            PlayerData.Instance.Coins += (int)BountyKilling;
             Destroy(gameObject);
         }
         UpdateHpView();

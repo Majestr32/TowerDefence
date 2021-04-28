@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,8 +10,11 @@ public class BuildingPlan : MonoBehaviour
     public float TurretSpeed { get; private set; }
     [SerializeField]
     private int timeLeft;
-    public int WorkersCount { get; private set; }
+    private int workersCount;
+    public int WorkersCount { get => workersCount; set { workersCount = value; OnWorkersCountChanghed?.Invoke(value); } }
     public float TimeLeft { get => timeLeft; }
+
+    public event Action<int> OnWorkersCountChanghed;
 
     private void Awake()
     {
@@ -20,8 +24,9 @@ public class BuildingPlan : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        Debug.Log("Clicked");
         TurretBuildingPannel.Instance.ShowTurretBuildingPannel(this);
+        ClickSelectController.ChangeBuildingPlan(this);
+
     }
     private void Update()
     {

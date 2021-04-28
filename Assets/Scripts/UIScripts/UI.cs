@@ -9,17 +9,17 @@ public class UI : MonoBehaviour
 {
     public static UI Instance { get; private set; }
     [SerializeField]
-    private static ExitPannel exitPannel;
+    private ExitPannel exitPannel;
     [SerializeField]
-    private static ResourcesPannel resourcesPannel;
+    private ResourcesPannel resourcesPannel;
     [SerializeField]
-    private static TurretBuildingPannel turretBuildingPannel;
+    private TurretBuildingPannel turretBuildingPannel;
     [SerializeField]
-    private static TurretMenuPannel turretMenuPannel;
+    private TurretMenuPannel turretMenuPannel;
     [SerializeField]
-    private static WinPannel winPannel;
+    private WinPannel winPannel;
     [SerializeField]
-    private static WavePannel wavePannel;
+    private WavePannel wavePannel;
     [SerializeField]
     private void Awake()
     {
@@ -29,6 +29,13 @@ public class UI : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
         #endregion
+        ClickSelectController.OnSelectedBuildingPlanChanged += HandleSelectedBuildingPlanChanged;
+        HandleSelectedBuildingPlanChanged(ClickSelectController.SelectedBuildingPlan);
+    }
+    private void HandleSelectedBuildingPlanChanged(BuildingPlan plan)
+    {
+        if (turretBuildingPannel != null)
+            turretBuildingPannel.Bind(plan);
     }
     private void Update()
     {

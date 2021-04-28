@@ -27,7 +27,6 @@ public class TurretMenuPannel : MonoBehaviour
         else if (Instance != this)
             Destroy(gameObject);
         #endregion
-        CloseTurretMenu();
     }
     public void OpenPlanningMenu()
     {
