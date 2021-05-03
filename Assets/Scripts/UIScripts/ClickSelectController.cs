@@ -9,6 +9,6 @@ public class ClickSelectController : MonoBehaviour
     public static BuildingPlan SelectedBuildingPlan { get; private set; }
     public static void ChangeBuildingPlan(BuildingPlan plan)
     {
-        OnSelectedBuildingPlanChanged?.Invoke(plan);
+         OnSelectedBuildingPlanChanged?.Invoke(plan);
     }
 }

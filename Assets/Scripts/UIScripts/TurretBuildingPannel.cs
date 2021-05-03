@@ -23,7 +23,10 @@ public class TurretBuildingPannel : MonoBehaviour
     private Text txtBuildersCount;
     [SerializeField]
     private Text txtTimeLeft;
+    [SerializeField]
+    private ProgressBar processBar;
 
+    [SerializeField]
     private BuildingPlan boundPlan;
     private void Awake()
     {
@@ -38,20 +41,34 @@ public class TurretBuildingPannel : MonoBehaviour
     private void OnDestroy()
     {
         if (boundPlan != null)
+        {
             boundPlan.OnWorkersCountChanghed -= HandleWorkersChanged;
+            boundPlan.OnTimeOnBuildingChanged -= HandleTimeOnBuildingChanged;
+        }
+            
+    }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha1) && boundPlan != null)
+            boundPlan.TimeLeft -= Time.deltaTime;
     }
 
     public void Bind(BuildingPlan buildingPlan)
     {
         if (buildingPlan != null)
+        {
             buildingPlan.OnWorkersCountChanghed -= HandleWorkersChanged;
+            buildingPlan.OnTimeOnBuildingChanged -= HandleTimeOnBuildingChanged;
+        }
 
         boundPlan = buildingPlan;
 
         if(boundPlan != null)
         {
             boundPlan.OnWorkersCountChanghed += HandleWorkersChanged;
+            buildingPlan.OnTimeOnBuildingChanged += HandleTimeOnBuildingChanged;
             HandleWorkersChanged(boundPlan.WorkersCount);
+            HandleTimeOnBuildingChanged(boundPlan.TimeOnBuilding, boundPlan.TimeLeft);
         }
     }
 
@@ -72,10 +89,22 @@ public class TurretBuildingPannel : MonoBehaviour
             //Subtract from boundPlan
         }
     }
-
+    public void HandleTimeOnBuildingChanged(float totalTime,float timeLeft)
+    {
+        if(boundPlan != null)
+        {
+            processBar.BarValue = (int)((totalTime - timeLeft) / totalTime * 100);
+            txtTimeLeft.text = "Time left:" + ((int)timeLeft).ToString();
+            if (timeLeft <= 0.1f)
+                boundPlan.FinishBuilding();
+        }
+    }
     public void HandleWorkersChanged(int workers)
     {
-        txtBuildersCount.text = workers.ToString();
+        if(boundPlan != null)
+        {
+            txtBuildersCount.text = workers.ToString();
+        }
     }
     public void ShowTurretBuildingPannel(BuildingPlan buildingPlan)
     {
