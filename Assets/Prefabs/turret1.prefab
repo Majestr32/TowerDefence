@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 0
+  timeOnBuilding: 10
 --- !u!114 &-8999376021863347230
 MonoBehaviour:
   m_ObjectHideFlags: 0
